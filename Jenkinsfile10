@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    tools{ gradle 'gradle-v6.1.1'}
+    stages {
+        stage('Build') {
+            steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jitpack/gradle-simple.git']]])
+                sh 'gradle --version'
+                sh 'ls'
+                sh './gradlew build'
+            }
+        }
+    }
+}
