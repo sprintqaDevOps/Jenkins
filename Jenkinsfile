@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'mac'
+    }
     tools{
         maven 'maven-v3.8.1' // get it from global tool
     }
