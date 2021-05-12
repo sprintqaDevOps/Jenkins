@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-        maven 'Maven-v' // get it from global tool
+        maven 'maven-v3.8.1' // get it from global tool
     }
     stages {
         stage('Build jar') {
