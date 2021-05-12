@@ -21,7 +21,6 @@ pipeline {
                         sh "echo $PASS | docker login -u $USER --password-stdin"
                         sh 'docker push mcalik77/sample-jenkins:v1'
                     }
-                    sh 'mvn package'
                 }
             }
         }
