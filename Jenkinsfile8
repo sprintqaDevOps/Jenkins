@@ -2,7 +2,7 @@ pipeline {
     agent {
         label 'mac'
         }
-    }
+    
     parameters {
         string(name: 'Command', defaultValue: 'apply', description: 'Which terraform command would you like to use?')
         string(name: 'environment', defaultValue: 'dev', description: 'Which terraform command would you like to use?')
