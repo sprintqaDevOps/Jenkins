@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script{
                     echo 'building application'
-                    sh 'cd java-maven-app/ && mvn package'
+                    sh 'cd sprint/ && mvn package'
                 }
             }
         }
@@ -19,9 +19,9 @@ pipeline {
                 script{
                     echo 'building docker image'
                     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                        sh 'docker build -t mcalik77/sample-jenkins:v2 .' // creating image localy
+                        sh 'docker build -t mcalik77/sprint:v1 .' // creating image localy
                         sh "echo $PASS | docker login -u $USER --password-stdin" // login to my docker hub
-                        sh 'docker push mcalik77/sample-jenkins:v2' //pushing the local image to docker hub
+                        sh 'docker push mcalik77/sprint:v1' //pushing the local image to docker hub
                     }
                 }
             }
